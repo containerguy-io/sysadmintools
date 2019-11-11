@@ -1,0 +1,22 @@
+---
+- name: Sysadmin Tools
+  hosts: 127.0.0.1
+  connection: local
+  become: yes
+
+  tasks:
+    - name: apt-install packages
+      apt:
+        name: "{{ item }}"
+        update_cache: true
+        state: present
+      with_items:
+        - 'wget'
+        - 'nano'
+        - 'screen'
+        - 'open-vm-tools'
+        - 'atop'
+        - 'htop'
+        - 'monit'
+        - 'iftop'
+        - 'iotop'
